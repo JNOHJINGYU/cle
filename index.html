@@ -494,12 +494,17 @@
      ============================================================ */
   @media (max-width: 640px) {
 
+    :root {
+      --mobile-header-height: 96px;
+    }
+
     /* PC 히어로 숨기고 모바일 전용 구조 보이기 */
     .hero { display: none; }
 
     .hero-mobile {
       display: block;
       background: var(--c-bg);
+      padding-top: var(--mobile-header-height);
     }
 
     /* 모바일: 상단 이미지 영역 */
@@ -513,7 +518,7 @@
     .hero-mobile-img {
       width: 100%;
       height: auto;
-      max-height: 60vw;
+      max-height: 68vw;
       object-fit: contain;
       object-position: center;
       display: block;
@@ -547,7 +552,31 @@
     /* 모바일 버튼 크기 확보 */
     .card-btn { min-height: 56px; font-size: 14px; }
 
-    .header-nav .nav-link { padding: 10px 16px; font-size: 13px; }
+    /* 모바일 고정 헤더 크기 축소 */
+    .site-header {
+      padding: 14px 0;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .header-inner {
+      padding: 0 18px;
+      gap: 12px;
+    }
+    .brand-mark {
+      font-size: 16px;
+    }
+    .brand-sub {
+      font-size: 9px;
+      letter-spacing: .10em;
+    }
+    .header-nav .nav-link { padding: 9px 14px; font-size: 12px; white-space: nowrap; }
+
+    /* 고정 헤더에 앵커 섹션이 가려지지 않도록 보정 */
+    #models {
+      scroll-margin-top: 90px;
+    }
   }
 
   /* ============================================================
@@ -701,7 +730,7 @@
             우아한 디자인과 스포티한 드라이빙을<br>동시에 만족시키는 프리미엄 2도어 쿠페
           </p>
           <div class="card-foot">
-            <a class="card-btn" data-link="clecoupe" href="clecoupe.html">
+            <a class="card-btn" data-link="clecoupe" href="https://jnohjingyu.github.io/cle/clecoupe.html">
               자세히 보기 <span class="arrow">→</span>
             </a>
           </div>
@@ -731,7 +760,7 @@
             오픈 에어링의 자유와 럭셔리 감성을<br>모두 경험하는 프리미엄 카브리올레
           </p>
           <div class="card-foot">
-            <a class="card-btn" data-link="clecabriolet" href="clecabriolet.html">
+            <a class="card-btn" data-link="clecabriolet" href="https://jnohjingyu.github.io/cle/clecabriolet.html">
               자세히 보기 <span class="arrow">→</span>
             </a>
           </div>
@@ -776,8 +805,8 @@
      모델별 랜딩페이지 링크 — 여기서 한 번에 수정 가능
      ============================================================ */
   const MODEL_LINKS = {
-    clecoupe:      'clecoupe.html',      // CLE Coupe 랜딩페이지 경로
-    clecabriolet:  'clecabriolet.html'   // CLE Cabriolet 랜딩페이지 경로
+    clecoupe:      'https://jnohjingyu.github.io/cle/clecoupe.html',      // CLE Coupe 랜딩페이지 경로
+    clecabriolet:  'https://jnohjingyu.github.io/cle/clecabriolet.html'   // CLE Cabriolet 랜딩페이지 경로
   };
   document.querySelectorAll('[data-link]').forEach((el) => {
     const key = el.getAttribute('data-link');
